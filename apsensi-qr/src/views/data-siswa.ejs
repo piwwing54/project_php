@@ -1,0 +1,41 @@
+<% layout('layout') -%>
+<section>
+  <div class="flex justify-between items-center mb-4">
+    <h3 class="text-xl font-semibold">Data Siswa</h3>
+    <div class="flex gap-2">
+      <form action="/students" method="post" class="flex gap-2">
+        <input name="name" placeholder="Nama" class="bg-gray-800 p-2 rounded" />
+        <input name="nis" placeholder="NIS" class="bg-gray-800 p-2 rounded" />
+        <button class="py-2 px-3 rounded-xl neon">Tambah</button>
+      </form>
+      <a href="/students/generate-all/zip" class="py-2 px-3 rounded-xl bg-indigo-600">Generate Semua QR</a>
+    </div>
+  </div>
+
+  <div class="overflow-auto rounded-2xl neon p-4">
+    <table class="w-full text-sm">
+      <thead class="text-left text-gray-400">
+        <tr>
+          <th class="pb-3">#</th>
+          <th class="pb-3">Nama</th>
+          <th class="pb-3">NIS</th>
+          <th class="pb-3">Kelas</th>
+          <th class="pb-3">QR</th>
+          <th class="pb-3">Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% students.forEach((s, idx) => { %>
+        <tr class="border-t border-gray-800">
+          <td class="py-3"><%= idx+1 %></td>
+          <td class="py-3"><%= s.name %></td>
+          <td class="py-3"><%= s.nis %></td>
+          <td class="py-3"><%= s.class || '-' %></td>
+          <td class="py-3"><canvas id="qr-<%= s._id %>"></canvas></td>
+          <td class="py-3"><a href="/students/<%= s._id %>/qr" class="py-1 px-2 rounded-md bg-gray-700 text-xs">Download QR</a></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</section>
