@@ -1,0 +1,31 @@
+<% layout('layout') -%>
+<section>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="p-4 neon rounded-2xl">
+      <h3 class="text-sm text-gray-300">Hadir Hari Ini</h3>
+      <p class="text-3xl font-bold mt-2"><%= stats.presentToday || 0 %></p>
+    </div>
+    <div class="p-4 neon rounded-2xl">
+      <h3 class="text-sm text-gray-300">Siswa Terdaftar</h3>
+      <p class="text-3xl font-bold mt-2"><%= stats.totalStudents || 0 %></p>
+    </div>
+    <div class="p-4 neon rounded-2xl">
+      <h3 class="text-sm text-gray-300">Guru Terdaftar</h3>
+      <p class="text-3xl font-bold mt-2"><%= stats.totalTeachers || 0 %></p>
+    </div>
+  </div>
+
+  <div class="mt-6">
+    <h4 class="font-semibold mb-3">Aktivitas Terakhir</h4>
+    <div class="neon rounded-2xl p-4">
+      <ul class="space-y-2 text-sm text-gray-300">
+        <% recentActivities.forEach(act => { %>
+        <li class="flex justify-between">
+          <span><%= act.role %> — <%= act.qrPayload %></span>
+          <span class="text-xs text-gray-400"><%= new Date(act.timestamp).toLocaleString() %></span>
+        </li>
+        <% }) %>
+      </ul>
+    </div>
+  </div>
+</section>

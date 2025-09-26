@@ -1,0 +1,16 @@
+<% layout('layout') -%>
+<section>
+  <div class="flex items-center justify-between mb-4">
+    <h3 class="text-xl font-semibold"><%= page === 'absen-siswa' ? 'Absen Siswa' : 'Absen Guru' %></h3>
+    <div class="flex gap-2">
+      <button id="openScanTop" class="py-2 px-3 rounded-xl neon">Scan QR</button>
+    </div>
+  </div>
+
+  <div class="neon rounded-2xl p-4">
+    <p class="text-sm text-gray-300">Arahkan kamera ke QR code siswa/guru untuk melakukan absen.</p>
+    <div class="mt-4" id="scannerWrap">
+      <div id="reader" style="width:100%;min-height:260px"></div>
+    </div>
+  </div>
+</section>

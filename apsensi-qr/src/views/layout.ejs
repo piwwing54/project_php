@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="id" class="h-full bg-gray-900 text-gray-100">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Apsensi QR</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+    <script src="https://unpkg.com/html5-qrcode@2.3.8/minified/html5-qrcode.min.js"></script>
+  </head>
+  <body>
+    <div class="flex h-screen">
+      <%- include('partials/sidebar') %>
+      <main class="flex-1 p-6 overflow-auto">
+        <%- body %>
+      </main>
+    </div>
+    <script src="/js/main.js"></script>
+  </body>
+  </html>
